@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CmsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('cms')->name('cms.')->group(function () {
+    Route::get('/index',[CmsController::class,'index'])->name('index');
+    // Route::resource('user', UserController::class);
 });
